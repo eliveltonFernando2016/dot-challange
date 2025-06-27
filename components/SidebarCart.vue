@@ -56,8 +56,4 @@
 </template>
 <script setup lang="ts">
 const cartStore = useCartStore()
-
-function checkout() {
-
-}
 </script>

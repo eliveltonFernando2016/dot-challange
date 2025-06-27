@@ -1,7 +1,7 @@
 <template>
   <div class="bg-[#d1f0ec] py-4">
     <UContainer as="header" class="flex items-center justify-between">
-      <p class="text-primary font-bold text-3xl">LOGO</p>
+      <NuxtLink to="/" class="text-primary font-bold text-3xl">LOGO</NuxtLink>
       <UInput
           v-model="moviesStore.search"
           type="search"
