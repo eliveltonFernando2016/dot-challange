@@ -37,8 +37,6 @@ export const useMoviesStore = defineStore('movies', () => {
         await $http.get('/discover/movie?include_adult=false&language=pt-BR&page=' + currentPage).then((response) => {
             const mappedResults = response.data.results.map((movie: Movie) => ({
                 ...movie,
-                backdrop_path: movie.backdrop_path ? 'https://image.tmdb.org/t/p/w200' + movie.backdrop_path : null,
-                poster_path: movie.poster_path ? 'https://image.tmdb.org/t/p/w200' + movie.poster_path : null,
                 release_date: new Date(movie.release_date).toLocaleDateString('pt-BR'),
                 price: (Math.random() * 90 + 10).toFixed(2),
             }))
@@ -61,8 +59,6 @@ export const useMoviesStore = defineStore('movies', () => {
         await $http.get('/search/movie?query='+ search.value +'&include_adult=false&language=pt-BR&page=' + currentPage).then((response) => {
             const mappedResults = response.data.results.map((movie: Movie) => ({
                 ...movie,
-                backdrop_path: movie.backdrop_path ? 'https://image.tmdb.org/t/p/w200' + movie.backdrop_path : null,
-                poster_path: movie.poster_path ? 'https://image.tmdb.org/t/p/w200' + movie.poster_path : null,
                 release_date: new Date(movie.release_date).toLocaleDateString('pt-BR'),
                 price: (Math.random() * 90 + 10).toFixed(2),
             }))

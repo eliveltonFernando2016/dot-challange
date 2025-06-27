@@ -1,7 +1,7 @@
 <template>
   <UContainer class="my-8">
     <h1 class="text-2xl pb-8">Finalizar Compra</h1>
-    <UForm @submit="onSubmit" :schema="schema" :state="state" class="grid grid-cols-2 gap-20">
+    <UForm @submit="onSubmit" :schema="schema" :state="state" class="grid sm:grid-cols-1 md:grid-cols-2 gap-20">
       <div>
         <div class="grid grid-cols-2 gap-6">
           <UFormField name="name" class="col-span-2" label="Nome completo">
@@ -51,6 +51,10 @@
 import * as z from 'zod'
 import { vMaska } from 'maska/vue'
 import type { FormSubmitEvent } from '@nuxt/ui'
+
+useHead({
+  title: 'Checkout',
+})
 
 const cartStore = useCartStore()
 const toast = useToast()

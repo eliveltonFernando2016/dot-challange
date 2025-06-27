@@ -8,7 +8,7 @@
         size: 'xl'
       }"
       :ui="{
-        content: 'max-w-[40%]'
+        content: 'sm:max-w-full md:max-w-[40%]'
       }"
   >
     <UTooltip text="Favoritos" :delay-duration="0">

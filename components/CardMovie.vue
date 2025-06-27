@@ -11,7 +11,7 @@
     <template #header>
       <div class="relative">
         <UButton
-          @click="favoriteStore.handleFavorite(props.movie)"
+          @click="favoriteStore.handleFavorite(props.movie as Movie)"
           :icon="favoriteStore.favorites.some(fav => fav.id === props.movie.id) ? 'ph:heart-fill' : 'ph:heart'"
           variant="soft"
           class="text-2xl absolute right-1 top-1 rounded-full"
@@ -19,6 +19,7 @@
         />
         <p class="absolute text-center w-full bottom-2">{{ props.movie.release_date }}</p>
         <NuxtImg
+          provider="aliyun"
           :src="props.movie.backdrop_path"
           :alt="props.movie.title"
           class="w-full"
@@ -53,12 +54,11 @@
 
     <template #footer>
       <UButton
-        class="w-full"
         size="xl"
         :icon="verifyCart(props.movie.id) ? 'ph:check' : 'ph:basket'"
         block
         :disabled="verifyCart(props.movie.id)"
-        @click="cartStore.addToCart(props.movie)"
+        @click="cartStore.addToCart(props.movie as Movie)"
       >
         {{ verifyCart(props.movie.id) ? 'Adicionado' : 'Adicionar' }}
       </UButton>
@@ -78,6 +78,6 @@ const favoriteStore = useFavoriteStore()
 const cartStore = useCartStore()
 
 function verifyCart(id: string) {
-  return cartStore.cart.some(item => item.id === id)
+  return cartStore.cart.some(item => item.id.toString() === id)
 }
 </script>

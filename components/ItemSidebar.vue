@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-6 items-center justify-between w-full">
+  <div class="grid grid-cols-6 gap-x-2 items-center justify-between w-full">
     <div class="col-span-4 flex items-center gap-x-4">
       <NuxtImg
         :src="props.movie.backdrop_path"
@@ -19,12 +19,12 @@
           alt="placeholder"
         />
       </NuxtImg>
-      <p>{{ props.movie.title }}</p>
+      <p class="sm:text-sm md:text-base">{{ props.movie.title }}</p>
     </div>
     <p class="text-center">{{ new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(props.movie.price) }}</p>
     <div class="text-right">
       <UTooltip v-if="!props.isCart" text="Adicionar aos carrinho" :delay-duration="0">
-        <UButton icon="ph:shopping-cart" variant="ghost" size="xl" color="primary" @click="cartStore.addToCart(props.movie)" />
+        <UButton icon="ph:shopping-cart" variant="ghost" size="xl" color="primary" @click="cartStore.addToCart(props.movie as Movie)" />
       </UTooltip>
       <UModal
         :dismissible="false"

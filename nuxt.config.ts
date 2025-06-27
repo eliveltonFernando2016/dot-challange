@@ -30,4 +30,14 @@ export default defineNuxtConfig({
   pinia: {
     storesDirs: ['./store/**'],
   },
+  image: {
+    aliyun: {
+      baseURL: 'https://image.tmdb.org/t/p/w200'
+    }
+  },
+  app: {
+    head: {
+      titleTemplate: 'DOT - %s',
+    },
+  },
 })
