@@ -2,6 +2,7 @@
   <div class="grid grid-cols-6 gap-x-2 items-center justify-between w-full">
     <div class="col-span-4 flex items-center gap-x-4">
       <NuxtImg
+        provider="aliyun"
         :src="props.movie.backdrop_path"
         :alt="props.movie.title"
         class="w-15"
